@@ -1,0 +1,10 @@
+{
+  "name": "bruno-crispo-academicwebsite",
+  "compatibility_date": "2026-11-17",
+  "build": {
+    "command": "hugo --gc --minify"
+  },
+  "assets": {
+    "directory": "./public"
+  }
+}

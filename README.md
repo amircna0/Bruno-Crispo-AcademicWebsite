@@ -66,15 +66,17 @@ up. In Finder, `Cmd + Shift + .` shows hidden files such as `.gitignore`.
 - **Hide a wrongly attributed paper from the live list** – add its OpenAlex ID to `openalexHide` in `hugo.toml`.
 - **Change contact details or the Scholar link** – `hugo.toml`, under `[params]`.
 
-## Deploy on Cloudflare Pages
+## Deploy on Cloudflare
 
-Connect this repository to Cloudflare Pages (**Workers & Pages → Create → Pages → Connect to Git**) with:
+The file `wrangler.jsonc` tells Cloudflare how to build and publish the site (it runs
+`hugo --gc --minify` and publishes the `public/` folder). Connect this repository in
+**Workers & Pages → Create → Import a repository** and use:
 
 | Setting | Value |
 | --- | --- |
-| Framework preset | Hugo |
-| Build command | `hugo --minify` |
-| Build output directory | `public` |
-| Environment variable | `HUGO_VERSION` = `0.152.2` |
+| Project / Worker name | `bruno-crispo-academicwebsite` (must match `name` in `wrangler.jsonc`) |
+| Build command | leave empty (`wrangler.jsonc` already contains it) |
+| Deploy command | `npx wrangler deploy` |
+| Build variable | `HUGO_VERSION` = `0.152.2` (Settings → Build → Variables and secrets) |
 
 Every push to `main` then rebuilds and publishes the site.
