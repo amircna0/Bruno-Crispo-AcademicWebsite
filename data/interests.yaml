@@ -1,0 +1,38 @@
+# RESEARCH INTERESTS
+# short -> one-liner on the home page      long -> full paragraph on the Research page
+- title: "Large-scale analysis of web-based attacks"
+  short: "Discovering new web vulnerabilities and measuring their reach across the Web: Relative Path Overwrite and Web Cache Deception."
+  long: >-
+    Discovering new web vulnerabilities and measuring how many real websites are exposed to them.
+    Results include the Relative Path Overwrite (RPO) attack and the Web Cache Deception work
+    presented at USENIX Security 2020.
+
+- title: "Security of the Internet of Things"
+  short: "Software-based protection of simple, resource-constrained devices in IoT and cyber-physical systems."
+  long: >-
+    Protecting IoT and cyber-physical systems against attack vectors that appear when subsystems
+    never meant to be online are interconnected. The focus is on the simplest and most widely deployed
+    devices, which have no special hardware for key protection and sometimes not even basic memory
+    protection, so the emphasis is on software-based defences.
+
+- title: "Behavioural biometrics"
+  short: "User authentication for IoT and wearables based on how people move and interact."
+  long: >-
+    Authentication for smartphones, smart watches and fitness bands, where PINs and passwords are
+    unpopular. Methods built on how users perform activities, using the MEMS sensors already in these
+    devices, aiming at accuracy that users find easy to accept. The topic spans security and privacy,
+    machine learning and human-computer interaction.
+
+- title: "Adversarial learning"
+  short: "Learning algorithms designed to be harder to attack, with Prof. Bergadano (University of Torino)."
+  long: >-
+    Foundational work on designing learning algorithms that make adversarial attacks harder, rather than
+    yet another application of adversarial learning. Carried out in collaboration with Prof. Bergadano
+    of the University of Torino.
+
+- title: "Mobile platforms security and privacy"
+  short: "Stronger security models for smartphone platforms, and static/dynamic analysis of mobile apps."
+  long: >-
+    Two threads: strengthening the security models and mechanisms of smartphone platforms and operating
+    systems without hurting usability, and analysing mobile applications by combining static and dynamic
+    techniques, including code loaded at runtime and constructs that hide their semantics, such as reflection.

@@ -1,0 +1,118 @@
+# MENTORSHIP — Ph.D. students
+#
+# NOT LISTED YET (status and dissertation not confirmed; they were "current students" on the old website):
+#   Luca Degani (2020), Hussein Joumaa (2021), Andrea Naimoli (2020), Majid Salehi (2018),
+#   Maryam Mirheidari (2019), Ali Hariri (2019)
+# Once confirmed, add each one to `current` or `former` below.
+
+current:
+  - name: "Carlo Ramponi"
+    url: "https://cybersecurityunitn.github.io/author/carlo-ramponi"
+    topic: "System security: embedded and IoT devices, trusted execution environments and bare-metal firmware security"
+  - name: "Amel Benabdallah"
+    url: "https://cybersecurityunitn.github.io/author/amel-benabdallah"
+    topic: "Cybersecurity"
+
+# former: newest first.
+#   employer / url   optional
+#   coadvisor        optional ("Co-advised with ...")
+#   unconfirmed      true -> adds a † (affiliation as last listed on the original website)
+former:
+  - name: "Matteo Golinelli"
+    year: 2026
+    employer: "Researcher, University of Trento"
+    url: "https://cybersecurityunitn.github.io/author/matteo-golinelli"
+    dissertation: "Security Implications of Web Caching"
+  - name: "Michele Grisafi"
+    year: 2025
+    dissertation: "On the importance of software-hardware co-design of Trusted Computing architectures and services"
+  - name: "Elham Arshad"
+    year: 2022
+    dissertation: "Analysis of OAuth and CORS vulnerabilities in the wild"
+  - name: "Mahmoud Ammar"
+    year: 2021
+    employer: "Huawei Research"
+    url: "https://www.usenix.org/conference/usenixsecurity26/presentation/jacobs"
+    dissertation: "Software-based Trusted Computing Architecture for Resource-constrained Internet of Things Devices"
+  - name: "Seyed Ali Mirheidari"
+    year: 2020
+    employer: "Splunk"
+    url: "https://www.usenix.org/conference/usenixsecurity22/presentation/mirheidari"
+    unconfirmed: true
+    dissertation: "Confused by Path: Analysis of Path Confusion-Based Attacks"
+  - name: "Sandeep Gupta"
+    year: 2020
+    employer: "Queen’s University Belfast"
+    url: "https://pureadmin.qub.ac.uk/ws/portalfiles/portal/cv/cdbd6781-1b95-4aff-a128-16b53a77c692?locale=en_GB"
+    dissertation: "Next-Generation User Authentication Schemes for IoT Applications"
+  - name: "Attaullah Buriro"
+    year: 2017
+    employer: "University of Essex"
+    url: "https://orcid.org/0000-0003-2723-2410"
+    dissertation: "Behavioural Biometrics for Smartphone User Authentication"
+  - name: "Maqsood Ahmad"
+    year: 2017
+    employer: "Guardsquare"
+    url: "https://be.linkedin.com/in/maqsoodahmad"
+    dissertation: "Mobile Application Security in the Presence of Dynamic Code Updates"
+  - name: "Mojtaba Eskandari"
+    year: 2017
+    employer: "Tendermint"
+    unconfirmed: true
+    dissertation: "Smartphone Data Transfer Protection According to Jurisdiction Regulations"
+  - name: "Yury Zhauniarovich"
+    year: 2014
+    employer: "TU Delft"
+    url: "https://www.tudelft.nl/en/staff/y.zhauniarovich/"
+    dissertation: "Improving the Security of the Android Ecosystem"
+  - name: "Muhammad Rizwan Asghar"
+    year: 2013
+    employer: "University of Surrey"
+    url: "https://www.surrey.ac.uk/people/rizwan-asghar"
+    dissertation: "Privacy Preserving Enforcement of Sensitive Policies in Outsourced and Distributed Environments"
+    coadvisor: "Giovanni Russello"
+  - name: "Mihaela Ion"
+    year: 2013
+    employer: "Google"
+    url: "https://www.linkedin.com/in/mihaela-ion-6000264"
+    dissertation: "Security of Publisher/Subscriber Systems"
+    coadvisor: "Giovanni Russello"
+  - name: "Stefano Ortolani"
+    year: 2013
+    employer: "Broadcom"
+    url: "https://blogs.vmware.com/security/author/sortolani"
+    dissertation: "Keylogger Detection and Containment"
+  - name: "Gabriela Gheorghe"
+    year: 2012
+    employer: "Luxembourg House of Cybersecurity"
+    url: "https://lu.linkedin.com/in/gabrielagheorghe"
+    dissertation: "Design and Assessment of Preventive and Reactive Policy Enforcement"
+  - name: "Fatih Turkmen"
+    year: 2012
+    employer: "University of Groningen"
+    url: "https://www.rug.nl/staff/f.turkmen/?lang=en"
+    dissertation: "Exploring Dynamic Constraint Enforcement and Efficiency in Access Control"
+  - name: "Srijith Nair"
+    year: 2010
+    employer: "Beyond ONE"
+    url: "https://srijith.net/about.html"
+    dissertation: "Remote Policy Enforcement Using Java Virtual Machine"
+    coadvisor: "Andrew S. Tanenbaum"
+  - name: "Melanie Rieback"
+    year: 2008
+    employer: "Radically Open Security"
+    url: "https://www.radicallyopensecurity.com/our-team/business/MelanieRieback.html"
+    dissertation: "Security and Privacy of Radio Frequency Identification"
+    coadvisor: "Andrew S. Tanenbaum"
+  - name: "Bogdan Popescu"
+    year: 2006
+    employer: "AIMMS"
+    unconfirmed: true
+    dissertation: "Design and Implementation of a Secure Wide-Area Object Middleware"
+    coadvisor: "Andrew S. Tanenbaum"
+  - name: "Pietro Mazzoleni"
+    year: 2006
+    employer: "IBM"
+    url: "https://es.linkedin.com/in/pietromazzoleni"
+    dissertation: "Multilateral Fine Grained Access Control Mechanisms for Large Scale Distributed Systems"
+    coadvisor: "Elisa Bertino"

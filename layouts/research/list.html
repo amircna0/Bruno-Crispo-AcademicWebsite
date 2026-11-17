@@ -1,0 +1,27 @@
+{{ define "main" }}
+{{ partial "pagehead.html" . }}
+<div class="bodycontent">
+<section class="section"><h2>Research interests</h2>
+{{- range site.Data.interests }}
+<div class="topic"><h3>{{ .title }}</h3><p>{{ .long }}</p></div>
+{{- end }}
+</section>
+
+<section class="section" id="projects"><h2>Research projects</h2>
+{{- range site.Data.projects }}
+<div class="topic"><span class="tag">{{ .kind }}</span><h3><a href="{{ .url }}" rel="noopener">{{ .title }}</a></h3><p>{{ .description }}</p></div>
+{{- end }}
+</section>
+
+<section class="section" id="events"><h2>Scientific events</h2>
+<ul class="events">
+{{- range site.Data.events }}
+<li><a href="{{ .url }}" rel="noopener">{{ .text }}</a></li>
+{{- end }}
+</ul>
+<p class="note">Events and committees listed on the original website (2021–2024).</p></section>
+
+<section class="section"><h2>Explore</h2>
+<p>{{ with site.GetPage "/publications" }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }} · {{ with site.GetPage "/mentorship" }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}</p></section>
+</div>
+{{ end }}

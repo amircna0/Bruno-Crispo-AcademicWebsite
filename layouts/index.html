@@ -1,0 +1,45 @@
+{{ define "main" }}
+{{- $portrait := (resources.Get "media/bruno-crispo-portrait-v2.jpg").Resize "336x q85" -}}
+<section class="hero"><div>
+<h1>{{ site.Params.name }}</h1>
+<p class="profile-links"><a href="{{ site.Params.scholar }}" rel="noopener">Google Scholar ↗</a><a href="mailto:{{ site.Params.email }}">Email</a></p>
+<p class="role">{{ .Params.role }}</p>
+<p class="affil">{{ .Params.affiliation }}</p>
+<p class="lead">{{ .Params.lead }}</p></div>
+<figure class="portrait"><img src="{{ $portrait.RelPermalink }}" width="168" height="{{ div $portrait.Height 2 }}" alt="{{ site.Params.name }}" fetchpriority="high"></figure></section>
+<ul class="keywords">{{ range .Params.keywords }}<li>{{ . }}</li>{{ end }}</ul>
+
+<section class="section" id="news"><div class="sectionhead"><h2>News</h2></div>
+<ul class="news">
+{{- range site.Data.news }}
+{{- if .pinned }}
+<li class="pinned"><div class="when"><span class="badge">PINNED</span><br>{{ .when }}</div><p>{{ .text | markdownify }}</p></li>
+{{- else }}
+<li><div class="when">{{ .when }}</div><p>{{ .text | markdownify }}</p></li>
+{{- end }}
+{{- end }}
+</ul></section>
+
+<section class="section" id="research"><div class="sectionhead"><h2>Research interests</h2>
+<a class="smalllink" href="{{ "research/" | relURL }}">Details and projects →</a></div>
+<div class="cols2">
+{{- range site.Data.interests }}
+<article><h3>{{ .title }}</h3><p>{{ .short }}</p></article>
+{{- end }}
+</div></section>
+
+<section class="section" id="papers"><div class="sectionhead"><h2>Selected publications</h2>
+<a class="smalllink" href="{{ "publications/" | relURL }}">All publications →</a></div>
+{{ partial "selected-publications.html" . }}
+<div class="btnrow"><a class="button" href="{{ site.Params.scholar }}" rel="noopener">Google Scholar ↗</a></div></section>
+
+<section class="section" id="projects"><div class="sectionhead"><h2>Research projects</h2>
+<a class="smalllink" href="{{ "research/" | relURL }}#projects">More →</a></div>
+<div class="cols2">
+{{- range site.Data.projects }}
+<article><h3><a href="{{ .url }}" rel="noopener">{{ .title }}</a></h3><p class="note">{{ .kind }}</p></article>
+{{- end }}
+</div></section>
+
+{{ partial "contact.html" . }}
+{{ end }}

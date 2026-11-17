@@ -1,0 +1,20 @@
+{{ define "main" }}
+{{ partial "pagehead.html" . }}
+<div class="bodycontent">
+<section class="section"><h2>Current Ph.D. students</h2>
+<ul class="people">
+{{- range site.Data.students.current }}
+<li><a class="nm" href="{{ .url }}" rel="noopener">{{ .name }}</a><span class="topic-line">{{ .topic }}</span></li>
+{{- end }}
+</ul></section>
+
+<section class="section"><h2>Former Ph.D. students</h2>
+<ul class="people">
+{{- range site.Data.students.former }}
+{{- $s := . }}
+<li><span class="nm">{{ $s.name }}</span> ({{ $s.year }}){{ with $s.employer }}, {{ if $s.url }}<a href="{{ $s.url }}" rel="noopener">{{ . }}</a>{{ else }}{{ . }}{{ end }}{{ if $s.unconfirmed }}†{{ end }}{{ end }}<span class="diss">Dissertation: <em>{{ $s.dissertation }}</em></span>{{ with $s.coadvisor }}<span class="co">Co-advised with {{ . }}</span>{{ end }}</li>
+{{- end }}
+</ul>
+<p class="fineprint">† Affiliation as last listed on the original website. Year is when the doctorate was completed.</p></section>
+</div>
+{{ end }}

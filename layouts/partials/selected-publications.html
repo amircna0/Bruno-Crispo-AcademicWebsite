@@ -1,0 +1,5 @@
+<ol class="pubs">
+{{- range site.Data.selected_publications }}
+<li><a class="ti" href="{{ .url }}" rel="noopener">{{ .title }}</a><span class="au">{{ .authors | markdownify }}</span><span class="ve">{{ .venue }}</span></li>
+{{- end }}
+</ol>

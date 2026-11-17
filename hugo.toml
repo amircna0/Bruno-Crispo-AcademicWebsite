@@ -1,0 +1,41 @@
+# Site configuration — https://gohugo.io/configuration/
+baseURL = "/"                 # links are root-relative, so the same build works on any Cloudflare domain
+languageCode = "en"
+title = "Bruno Crispo — Security Research"
+disableKinds = ["RSS", "sitemap", "taxonomy", "term"]
+
+# ---- Top menu (order = weight) ------------------------------------------------
+[[menus.main]]
+  name = "Home"
+  pageRef = "/"
+  weight = 10
+[[menus.main]]
+  name = "Research"
+  pageRef = "/research"
+  weight = 20
+[[menus.main]]
+  name = "Publications"
+  pageRef = "/publications"
+  weight = 30
+[[menus.main]]
+  name = "Mentorship"
+  pageRef = "/mentorship"
+  weight = 40
+
+# ---- Values reused across pages -------------------------------------------------
+[params]
+  name = "Bruno Crispo"
+  description = "Bruno Crispo, University of Trento. Research in web security, systems security, IoT, authentication and privacy."
+  email = "bruno.crispo@unitn.it"
+  scholar = "https://scholar.google.com/citations?user=QHQUuuYAAAAJ&hl=en&sortby=pubdate"
+
+  # Live publication list on the Publications page (see assets/js/publications.js)
+  openalexAuthor = "A5076845058"   # Bruno Crispo on OpenAlex (ORCID 0000-0002-1252-8465)
+  openalexHide = []                # OpenAlex work IDs to hide, e.g. ["W1234567890"]
+
+  [params.contact]
+    department = "Department of Information Engineering and Computer Science (DISI)"
+    university = "University of Trento"
+    address = "via Sommarive 14, I-38123 Povo (TN), Italy"
+    phone = "+39 0461 28 2099"
+    fax = "+39 0461 28 2093"

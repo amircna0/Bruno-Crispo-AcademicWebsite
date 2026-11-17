@@ -1,0 +1,33 @@
+# RESEARCH PROJECTS — home page shows title + kind; the Research page also shows the description.
+- title: "CROSSCON"
+  kind: "EU Research and Innovation Action · scientific coordinator"
+  url: "https://crosscon.eu/"
+  description: >-
+    An open, flexible, portable and vendor-independent IoT security stack that runs across very different
+    edge devices, from bare-metal boards with a few KB of RAM to devices with a hardware root of trust and
+    trusted execution environments, to give a consistent security baseline across a whole IoT system.
+    The stack specifications are formally verified (project budget above €6M).
+
+- title: "Safe and Secure Industrial Internet of Things (S2)"
+  kind: "MUR PRIN 2022"
+  url: "https://prin.cybersecurity.disi.unitn.it/"
+  description: >-
+    Foundations, tools and methods for building safer and more secure safety-critical cyber-physical systems:
+    preventing cyber attacks, detecting them when prevention fails, and containing their effects.
+    A consortium of established Italian research groups.
+
+- title: "SPECTRO"
+  kind: "EU Digital Europe SKILLS"
+  url: "https://www.eitdigital.eu/eu-collaborations/spectro/"
+  description: >-
+    Specialised education in cybersecurity and robotics: two double-degree master's programmes
+    (120 ECTS) with a minor in innovation and entrepreneurship, delivered by 12 higher-education institutions
+    from 7 countries, 2 SMEs, a research centre and EIT Digital.
+
+- title: "DUCA — Data Usage Control"
+  kind: "EU MSCA Staff Exchange"
+  url: "https://www.irit.fr/duca/"
+  description: >-
+    A platform-independent framework of security and privacy-enhancing solutions that lets European
+    citizens and organisations control their data. Use cases: smart energy, usage control for big data and AI,
+    and collaborative mobility.

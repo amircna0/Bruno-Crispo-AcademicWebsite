@@ -1,0 +1,39 @@
+# NEWS — shown on the home page, in this order (newest first).
+# pinned: true  -> shaded box with a PINNED badge (keep it first)
+# text accepts Markdown: [link text](https://...) and **bold**
+- pinned: true
+  when: "Open positions · I am hiring"
+  text: >-
+    Interested in doing research on **system security, Internet of Things, trust technology or web security**?
+    [Send an email](mailto:bruno.crispo@unitn.it). Bruno Crispo is always looking for good candidates for PhD,
+    junior or senior researcher positions, and also as a professor.
+
+- when: "Jan 2024 · Event"
+  text: >-
+    The seventh [NeCS PhD Winter School](https://necs-winterschool.disi.unitn.it/) takes place in Cortina
+    from 8 to 12 January 2024, with a prestigious list of speakers.
+
+- when: "Dagstuhl Seminar 24312"
+  text: >-
+    Together with colleagues, Bruno Crispo is organising a Dagstuhl Seminar on the
+    [Security and Privacy of Current and Emerging IoT Devices and Systems](https://www.dagstuhl.de/en/seminars/seminar-calendar/seminar-details/24312).
+
+- when: "Dec 2023 · ACSAC"
+  text: >-
+    [OAuth 2.0 Redirect URI Validation Falls Short, Literally](https://doi.org/10.1145/3627106.3627140)
+    presented at ACSAC 2023; the work caught the attention of the group working on the standard.
+
+- when: "Jul 2023 · IEEE ISCC"
+  text: >-
+    [AppBox: A Black-Box Application Sandboxing Technique for Mobile App Management Solutions](https://ieeexplore.ieee.org/abstract/document/10217861)
+
+- when: "Feb 2023 · Pattern Recognition"
+  text: >-
+    A Survey of Human-Computer Interaction (HCI) & Natural Habits-based Behavioural Biometric Modalities
+    for User Recognition Schemes
+
+- when: "Startup · Nov 2022"
+  text: >-
+    [Security Embedded](https://www.securityembedded.it/) has been founded: an innovative startup offering
+    services and products for IIoT and OT security, showcased at
+    [Prototypes for Humanity](https://www.prototypesforhumanity.com/) in Dubai in November 2022.

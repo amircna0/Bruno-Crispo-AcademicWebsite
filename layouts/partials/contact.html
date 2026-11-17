@@ -1,0 +1,5 @@
+{{- $c := site.Params.contact -}}
+<section class="section" id="contact"><div class="contact"><h2>Contact</h2>
+<p><strong>{{ site.Params.name }}</strong><br>{{ $c.department }}<br>
+{{ $c.university }} · {{ $c.address }}<br>
+Tel {{ $c.phone }} · Fax {{ $c.fax }} · <a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a></p></div></section>

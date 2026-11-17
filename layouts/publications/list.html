@@ -1,0 +1,21 @@
+{{ define "main" }}
+{{ partial "pagehead.html" . }}
+<div class="bodycontent">
+<section class="section"><h2>Google Scholar</h2>
+<p>Citation counts and the complete record are on Google Scholar.</p>
+<div class="btnrow"><a class="button" href="{{ site.Params.scholar }}" rel="noopener">Open Google Scholar ↗</a></div></section>
+
+<section class="section" id="selected"><h2>Selected publications</h2>
+{{ partial "selected-publications.html" . }}</section>
+
+<section class="section" id="all"><h2>All publications</h2>
+<p class="muted">Compiled automatically from <a href="https://openalex.org/">OpenAlex</a> each time this page loads. Google Scholar remains the reference record.</p>
+<div id="live-pubs" data-author="{{ site.Params.openalexAuthor }}" data-scholar="{{ site.Params.scholar }}" data-hide="{{ delimit site.Params.openalexHide "," }}">
+<div class="pubtools"><input id="live-search" type="search" placeholder="Search title, author, venue or year" aria-label="Search publications"><span id="live-count" class="note" aria-live="polite"></span></div>
+<p id="live-status" class="status" role="status">Loading publications…</p>
+<div id="live-list"></div></div>
+<noscript><p>JavaScript is needed to show the live list. Please use <a href="{{ site.Params.scholar }}">Google Scholar</a>.</p></noscript>
+{{- $js := resources.Get "js/publications.js" | minify | fingerprint }}
+<script src="{{ $js.RelPermalink }}" defer></script></section>
+</div>
+{{ end }}
