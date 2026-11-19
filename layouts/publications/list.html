@@ -9,9 +9,9 @@
 {{ partial "selected-publications.html" . }}</section>
 
 <section class="section" id="all"><h2>All publications</h2>
-<p class="muted">Compiled automatically from <a href="https://openalex.org/">OpenAlex</a> each time this page loads. Google Scholar remains the reference record.</p>
 <div id="live-pubs" data-author="{{ site.Params.openalexAuthor }}" data-scholar="{{ site.Params.scholar }}" data-hide="{{ delimit site.Params.openalexHide "," }}">
 <div class="pubtools"><input id="live-search" type="search" placeholder="Search title, author, venue or year" aria-label="Search publications"><span id="live-count" class="note" aria-live="polite"></span></div>
+<nav id="live-nav" class="subnav" aria-label="Publication types"></nav>
 <p id="live-status" class="status" role="status">Loading publications…</p>
 <div id="live-list"></div></div>
 <noscript><p>JavaScript is needed to show the live list. Please use <a href="{{ site.Params.scholar }}">Google Scholar</a>.</p></noscript>

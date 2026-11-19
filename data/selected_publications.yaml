@@ -3,23 +3,28 @@
 # PROVISIONAL: these four are the papers the original website highlighted as "some of my recent papers".
 # When the final list of 10 is ready, replace or extend this file: one block per paper.
 #   authors: Markdown; wrap Bruno Crispo in **bold**
+#   type:    "Conference" or "Journal" (shown as a small label next to the title)
 #   url:     DOI link or publisher page
 - authors: "T. Innocenti, M. Golinelli, K. Onarlioğlu, S. A. Mirheidari, **B. Crispo**, E. Kirda"
   title: "OAuth 2.0 Redirect URI Validation Falls Short, Literally"
+  type: "Conference"
   venue: "Annual Computer Security Applications Conference (ACSAC), 2023, pp. 256–267"
   url: "https://doi.org/10.1145/3627106.3627140"
 
 - authors: "S. A. Mirheidari, S. Arshad, K. Onarlioglu, **B. Crispo**, E. Kirda, W. Robertson"
   title: "Cached and Confused: Web Cache Deception in the Wild"
+  type: "Conference"
   venue: "USENIX Security Symposium, 2020"
   url: "https://arxiv.org/abs/1912.10190"
 
 - authors: "M. Ammar, **B. Crispo**"
   title: "Verify&Revive: Secure Detection and Recovery of Compromised Low-end Embedded Devices"
+  type: "Conference"
   venue: "Annual Computer Security Applications Conference (ACSAC), 2020, pp. 717–732"
   url: "https://doi.org/10.1145/3427228.3427253"
 
 - authors: "M. Ammar, G. Russello, **B. Crispo**"
   title: "Internet of Things: A survey on the security of IoT frameworks"
+  type: "Journal"
   venue: "Journal of Information Security and Applications 38, 2018, pp. 8–27"
   url: "https://doi.org/10.1016/j.jisa.2017.11.002"

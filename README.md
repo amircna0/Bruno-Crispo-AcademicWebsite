@@ -7,11 +7,14 @@ Computer Science, University of Trento), migrated from the original page at
 ## What's on the site
 
 - **Home** – profile with a Google Scholar link, news with a pinned open-positions notice, research
-  interests, selected publications, projects and contact details.
+  interests, selected publications, scientific events and contact details. (The "Research projects"
+  block is hidden here; see *Everyday tasks* to show it again.)
 - **Research** – research interests (web security, IoT security, behavioural biometrics, adversarial
-  learning, mobile security), funded projects and scientific events.
-- **Publications** – a curated list of selected papers, plus the full list built live from
-  [OpenAlex](https://openalex.org/) each time the page loads, with search. Google Scholar is the fallback.
+  learning, mobile security) and funded projects.
+- **Publications** – a curated list of selected papers (each labelled Conference or Journal), plus the
+  full list built live from [OpenAlex](https://openalex.org/) each time the page loads. The full list is
+  split into Conference papers, Journal articles, Books and book chapters, Preprints and Other
+  publications, with search. Google Scholar is the fallback.
 - **Mentorship** – current and former Ph.D. students, with dissertation titles and co-advisors.
 
 ## Technical overview
@@ -53,7 +56,8 @@ up. In Finder, `Cmd + Shift + .` shows hidden files such as `.gitignore`.
 | `data/news.yaml` | News items; `pinned: true` keeps an item at the top |
 | `data/selected_publications.yaml` | The selected-publications list (home and Publications pages) |
 | `data/students.yaml` | Current and former Ph.D. students |
-| `data/interests.yaml`, `projects.yaml`, `events.yaml` | Research page content |
+| `data/interests.yaml`, `data/projects.yaml` | Research page content |
+| `data/events.yaml` | Scientific events (home page) |
 | `layouts/` | HTML templates: `baseof.html` (page shell), `partials/` (header, footer, …), one folder per page |
 | `assets/` | CSS, the publications script and the portrait; Hugo minifies and fingerprints them |
 | `static/_redirects` | Cloudflare redirects (`/supervision` → `/mentorship/`) |
@@ -61,7 +65,9 @@ up. In Finder, `Cmd + Shift + .` shows hidden files such as `.gitignore`.
 ## Everyday tasks
 
 - **Add news** – add a block at the top of `data/news.yaml` (below the pinned item).
-- **Final 10 selected papers** – edit `data/selected_publications.yaml`: one block per paper.
+- **Final 10 selected papers** – edit `data/selected_publications.yaml`: one block per paper, with
+  `type: "Conference"` or `type: "Journal"`.
+- **Show the "Research projects" block on the home page again** – set `homeProjects = true` in `hugo.toml`.
 - **Move a student** – edit `data/students.yaml`; names awaiting confirmation are listed in the comment at its top.
 - **Hide a wrongly attributed paper from the live list** – add its OpenAlex ID to `openalexHide` in `hugo.toml`.
 - **Change contact details or the Scholar link** – `hugo.toml`, under `[params]`.

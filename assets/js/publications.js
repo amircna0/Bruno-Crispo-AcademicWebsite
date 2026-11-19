@@ -1,7 +1,15 @@
 /*
- * Live publication list for bruno-crispo site.
+ * Live publication list for the bruno-crispo site.
  * Pulls the works linked to Bruno Crispo's OpenAlex profile (ORCID 0000-0002-1252-8465)
  * every time the page loads, so new papers appear without editing the site.
+ *
+ * The list is split into sections (Conference papers, Journal articles, Books and book chapters,
+ * Preprints, Other publications) and, inside each section, grouped by year.
+ *   - OpenAlex type "conference-paper", or a venue that OpenAlex marks as a conference  -> Conference papers
+ *   - OpenAlex type "article"/"review" published in a venue marked as a journal           -> Journal articles
+ *   - "book" / "book-chapter"                                                             -> Books and book chapters
+ *   - "preprint"                                                                          -> Preprints
+ *   - anything else (e.g. a repository copy with no venue information)                    -> Other publications
  *
  * Settings come from hugo.toml through data attributes on #live-pubs in layouts/publications/list.html:
  *   openalexAuthor -> data-author, scholar -> data-scholar, openalexHide -> data-hide
@@ -13,7 +21,16 @@
 
   var ME = /crispo/i;
   var ALLOWED = { 'article': 1, 'conference-paper': 1, 'book-chapter': 1, 'book': 1, 'review': 1, 'preprint': 1 };
-  var TYPE_LABEL = { 'preprint': 'Preprint', 'book-chapter': 'Book chapter', 'book': 'Book', 'review': 'Review' };
+  // Order of the sections on the page.
+  var SECTIONS = [
+    { key: 'conference', title: 'Conference papers' },
+    { key: 'journal', title: 'Journal articles' },
+    { key: 'book', title: 'Books and book chapters' },
+    { key: 'preprint', title: 'Preprints' },
+    { key: 'other', title: 'Other publications' }
+  ];
+  // When the same title appears more than once, keep the record with the clearest venue information.
+  var RANK = { conference: 3, journal: 3, book: 2, other: 1, preprint: 0 };
   var MAX_AUTHORS = 12;
 
   var root = document.getElementById('live-pubs');
@@ -25,6 +42,7 @@
   var listEl = document.getElementById('live-list');
   var searchEl = document.getElementById('live-search');
   var countEl = document.getElementById('live-count');
+  var navEl = document.getElementById('live-nav') || document.createElement('nav');
 
   function el(tag, cls, text) {
     var n = document.createElement(tag);
@@ -68,6 +86,18 @@
     return page(1);
   }
 
+  // Which section a record belongs to.
+  function kindOf(w) {
+    if (w.type === 'preprint') { return 'preprint'; }
+    if (w.type === 'book' || w.type === 'book-chapter') { return 'book'; }
+    if (w.type === 'conference-paper') { return 'conference'; }
+    var src = w.primary_location && w.primary_location.source;
+    var st = (src && src.type) || '';
+    if (st === 'conference') { return 'conference'; }
+    if (st === 'journal') { return 'journal'; }
+    return 'other';
+  }
+
   function clean(works) {
     var best = {};
     works.forEach(function (w) {
@@ -75,9 +105,10 @@
       if (HIDE.indexOf((w.id || '').replace('https://openalex.org/', '')) !== -1) { return; }
       var k = norm(w.title);
       if (!k) { return; }
+      w._kind = kindOf(w);
       var cur = best[k];
-      // keep one record per title, preferring the published version over a preprint
-      if (!cur || (cur.type === 'preprint' && w.type !== 'preprint')) { best[k] = w; }
+      // keep one record per title, preferring the one with the clearest venue (a preprint is the weakest)
+      if (!cur || RANK[w._kind] > RANK[cur._kind]) { best[k] = w; }
     });
     return Object.keys(best).map(function (k) { return best[k]; });
   }
@@ -100,7 +131,6 @@
     var title = link ? el('a', 'ti', w.title) : el('span', 'ti', w.title);
     if (link) { title.href = link; title.rel = 'noopener'; }
     li.appendChild(title);
-    if (TYPE_LABEL[w.type]) { li.appendChild(el('span', 'tt', TYPE_LABEL[w.type])); }
 
     var names = (w.authorships || []).map(function (a) { return a.author && a.author.display_name; }).filter(Boolean);
     var au = el('span', 'au');
@@ -119,18 +149,46 @@
   }
 
   function render(works) {
-    var byYear = {};
-    works.forEach(function (w) { (byYear[w.publication_year] = byYear[w.publication_year] || []).push(w); });
-    var years = Object.keys(byYear).sort(function (a, b) { return b - a; });
+    var groups = {};
+    works.forEach(function (w) { (groups[w._kind] = groups[w._kind] || []).push(w); });
     listEl.textContent = '';
-    years.forEach(function (y) {
-      var block = el('section', 'yearblock');
-      block.appendChild(el('h3', null, y));
-      var ul = el('ul');
-      byYear[y].forEach(function (w) { ul.appendChild(renderItem(w)); });
-      block.appendChild(ul);
+    navEl.textContent = '';
+
+    SECTIONS.forEach(function (s) {
+      var items = groups[s.key];
+      if (!items || !items.length) { return; }
+
+      var block = el('section', 'typeblock');
+      block.id = 'pubs-' + s.key;
+      var h = el('h3', null, s.title + ' ');
+      var cnt = el('span', 'count');
+      h.appendChild(cnt);
+      block.appendChild(h);
+
+      var byYear = {};
+      items.forEach(function (w) { (byYear[w.publication_year] = byYear[w.publication_year] || []).push(w); });
+      Object.keys(byYear).sort(function (a, b) { return b - a; }).forEach(function (y) {
+        var yb = el('div', 'yearblock');
+        yb.appendChild(el('h4', null, y));
+        var ul = el('ul');
+        byYear[y].forEach(function (w) { ul.appendChild(renderItem(w)); });
+        yb.appendChild(ul);
+        block.appendChild(yb);
+      });
       listEl.appendChild(block);
+
+      // link at the top of the list that jumps to this section
+      var a = el('a', null, s.title + ' ');
+      a.href = '#' + block.id;
+      var ncnt = el('span', 'count');
+      a.appendChild(ncnt);
+      navEl.appendChild(a);
+
+      block._count = cnt;
+      block._navLink = a;
+      block._navCount = ncnt;
     });
+
     statusEl.textContent = '';
     updateCount();
   }
@@ -138,15 +196,22 @@
   function updateCount() {
     var q = (searchEl.value || '').trim().toLowerCase();
     var shown = 0;
-    var blocks = listEl.querySelectorAll('.yearblock');
-    Array.prototype.forEach.call(blocks, function (b) {
-      var any = false;
-      Array.prototype.forEach.call(b.querySelectorAll('li'), function (li) {
-        var ok = !q || (li._search || '').indexOf(q) !== -1;
-        li.hidden = !ok;
-        if (ok) { any = true; shown++; }
+    Array.prototype.forEach.call(listEl.querySelectorAll('.typeblock'), function (sec) {
+      var secShown = 0;
+      Array.prototype.forEach.call(sec.querySelectorAll('.yearblock'), function (yb) {
+        var any = false;
+        Array.prototype.forEach.call(yb.querySelectorAll('li'), function (li) {
+          var ok = !q || (li._search || '').indexOf(q) !== -1;
+          li.hidden = !ok;
+          if (ok) { any = true; secShown++; }
+        });
+        yb.hidden = !any;
       });
-      b.hidden = !any;
+      sec.hidden = secShown === 0;
+      sec._navLink.hidden = secShown === 0;
+      sec._count.textContent = '(' + secShown + ')';
+      sec._navCount.textContent = '(' + secShown + ')';
+      shown += secShown;
     });
     countEl.textContent = shown + (shown === 1 ? ' publication' : ' publications') + (q ? ' match' : ' listed');
   }

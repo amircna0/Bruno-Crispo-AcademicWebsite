@@ -13,14 +13,6 @@
 {{- end }}
 </section>
 
-<section class="section" id="events"><h2>Scientific events</h2>
-<ul class="events">
-{{- range site.Data.events }}
-<li><a href="{{ .url }}" rel="noopener">{{ .text }}</a></li>
-{{- end }}
-</ul>
-<p class="note">Events and committees listed on the original website (2021–2024).</p></section>
-
 <section class="section"><h2>Explore</h2>
 <p>{{ with site.GetPage "/publications" }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }} · {{ with site.GetPage "/mentorship" }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}</p></section>
 </div>

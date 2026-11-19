@@ -29,6 +29,8 @@ disableKinds = ["RSS", "sitemap", "taxonomy", "term"]
   email = "bruno.crispo@unitn.it"
   scholar = "https://scholar.google.com/citations?user=QHQUuuYAAAAJ&hl=en&sortby=pubdate"
 
+  homeProjects = false             # true shows the "Research projects" block on the home page again
+
   # Live publication list on the Publications page (see assets/js/publications.js)
   openalexAuthor = "A5076845058"   # Bruno Crispo on OpenAlex (ORCID 0000-0002-1252-8465)
   openalexHide = []                # OpenAlex work IDs to hide, e.g. ["W1234567890"]

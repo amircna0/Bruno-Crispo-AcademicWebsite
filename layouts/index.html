@@ -33,6 +33,16 @@
 {{ partial "selected-publications.html" . }}
 <div class="btnrow"><a class="button" href="{{ site.Params.scholar }}" rel="noopener">Google Scholar ↗</a></div></section>
 
+<section class="section" id="events"><div class="sectionhead"><h2>Scientific events</h2></div>
+<ul class="events">
+{{- range site.Data.events }}
+<li><a href="{{ .url }}" rel="noopener">{{ .text }}</a></li>
+{{- end }}
+</ul>
+<p class="note">Events and committees listed on the original website (2021–2024).</p></section>
+
+{{- /* "Research projects" block: hidden on the home page. Set homeProjects = true in hugo.toml to show it again. The projects stay on the Research page. */ -}}
+{{ if site.Params.homeProjects }}
 <section class="section" id="projects"><div class="sectionhead"><h2>Research projects</h2>
 <a class="smalllink" href="{{ "research/" | relURL }}#projects">More →</a></div>
 <div class="cols2">
@@ -40,6 +50,7 @@
 <article><h3><a href="{{ .url }}" rel="noopener">{{ .title }}</a></h3><p class="note">{{ .kind }}</p></article>
 {{- end }}
 </div></section>
+{{ end }}
 
 {{ partial "contact.html" . }}
 {{ end }}
